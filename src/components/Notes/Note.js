@@ -3,7 +3,7 @@ import styles from './Note.module.css';
 
 const Note = ({ text, date }) => {
   return (
-    <div className={styles['note']}>
+    <div className={'note'}>
       <span>{text}</span>
       <div className={styles['note-footer']}>
         <small>{date}</small>
