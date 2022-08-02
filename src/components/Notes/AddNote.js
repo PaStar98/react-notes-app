@@ -3,10 +3,10 @@ import styles from './AddNote.module.css';
 
 const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoteText] = useState('');
-  const characterLimit = 200;
+  const characterLimit = 20;
 
   const handleChange = event => {
-    if (noteText.length < characterLimit) {
+    if (characterLimit - event.target.value.length >= 0) {
       setNoteText(event.target.value);
     }
   };
@@ -28,7 +28,7 @@ const AddNote = ({ handleAddNote }) => {
         onChange={handleChange}
       ></textarea>
       <div className={'note-footer'}>
-        <small>{`${characterLimit - noteText.length} Remaining`}</small>
+        <small>{characterLimit - noteText.length} Remaining</small>
         <button className={styles.btn} onClick={handleSaveClick}>
           Save
         </button>
