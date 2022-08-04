@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import NoteList from './components/Notes/NoteList';
 import Layout from './components/layout/Layout';
+import NoteList from './components/Notes/NoteList';
+import Header from './components/layout/Header';
+
+const NOTES_INIT_STATE = [
+  { id: nanoid(), text: 'This is my first note!', date: '15/04/2022' },
+  { id: nanoid(), text: 'This is my second note!', date: '21/12/2022' },
+  { id: nanoid(), text: 'There is another note here!', date: '11/11/2022' },
+  { id: nanoid(), text: 'This is my new note!', date: '31/07/2022' },
+];
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    { id: nanoid(), text: 'This is my first note!', date: '15/04/2022' },
-    { id: nanoid(), text: 'This is my second note!', date: '21/12/2022' },
-    { id: nanoid(), text: 'There is another note here!', date: '11/11/2022' },
-    { id: nanoid(), text: 'This is my new note!', date: '31/07/2022' },
-  ]);
+  const [notes, setNotes] = useState(NOTES_INIT_STATE);
+  const [searchText, setSearchText] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   const addNote = text => {
     const date = new Date();
@@ -22,15 +27,26 @@ const App = () => {
     setNotes(newNotes);
   };
 
+  const deleteNote = id => {
+    const newNotes = notes.filter(note => note.id !== id);
+    setNotes(newNotes);
+  };
+
   return (
-    <Layout>
-      <NoteList notesData={notes} handleAddNote={addNote} />
+    <Layout darkModeData={darkMode}>
+      <Header
+        handleSearchNote={setSearchText}
+        handleToggleDarkMode={setDarkMode}
+      />
+      <NoteList
+        notesData={notes.filter(note =>
+          note.text.toLowerCase().includes(searchText)
+        )}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+      />
     </Layout>
   );
 };
 
 export default App;
-
-// todo: compare code with tutorial, make sure that drilling addNote fn work properly
-// https://www.youtube.com/watch?v=8KB3DHI-QbM
-// 39 min
