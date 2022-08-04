@@ -34,3 +34,41 @@ code {
   align-items: center;
   justify-content: space-between;
 }
+
+.delete-btn:hover {
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.btn:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+/* DARK / LIGHT MODE */
+
+.dark-mode {
+  background-color: #464646;
+  transition: all 250ms ease;
+}
+
+.dark-mode h1 {
+  color: #ededed;
+  transition: all 250ms ease;
+}
+
+.light-mode {
+  background-color: #fff;
+  transition: all 250ms ease;
+}
+
+.light-mode h1 {
+  color: #1e1e1e;
+  transition: all 250ms ease;
+}
