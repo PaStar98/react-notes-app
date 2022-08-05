@@ -1,5 +1,6 @@
 # React Notes App
 ![Screenshot from 2022-08-05 14-36-20](https://user-images.githubusercontent.com/99507865/183078445-793a802e-611b-4d76-a1da-8c9cef682a41.png)
+![Screenshot from 2022-08-05 14-41-06](https://user-images.githubusercontent.com/99507865/183079388-dc2ccdfe-3e35-46e7-bd75-e494b4a62bef.png)
 
 ## STACK:
   * ReactJS
